@@ -42,7 +42,7 @@ if (redisCache.active) {
 	const rpcCredKeyComponent = md5(JSON.stringify(config.credentials.rpc)).substring(0, 8);
 	redisCacheObj = redisCache.createCache(`${cacheKeyVersion}-${rpcCredKeyComponent}`, onRedisCacheEvent);
 }  else {
-	console.log('The nexa explorer must have a redis cache setup to work');
+	console.log('The Exana Explorer must have a redis cache setup to work');
 	setTimeout(process.exit(0), 3000);
 }
 

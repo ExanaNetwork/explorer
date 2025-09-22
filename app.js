@@ -81,9 +81,9 @@ app.engine('pug', (path, options, fn) => {
 app.set('view engine', 'pug');
 
 // basic http authentication
-if (process.env.NEXEXP_BASIC_AUTH_PASSWORD) {
+if (process.env.EXAEXP_BASIC_AUTH_PASSWORD) {
 	app.disable('x-powered-by');
-	app.use(auth(process.env.NEXEXP_BASIC_AUTH_PASSWORD));
+	app.use(auth(process.env.EXAEXP_BASIC_AUTH_PASSWORD));
 }
 
 // uncomment after placing your favicon in /public
@@ -245,7 +245,7 @@ function onRpcConnectionVerified(getnetworkinfo, getblockchaininfo) {
 
 	global.getnetworkinfo = getnetworkinfo;
 
-	var bitcoinCoreVersionRegex = /^.*\/Nexa\:(.*)\/.*$/;
+	var bitcoinCoreVersionRegex = /^.*\/Exana\:(.*)\/.*$/;
 
 	var match = bitcoinCoreVersionRegex.exec(getnetworkinfo.subversion);
 	if (match) {
@@ -283,7 +283,7 @@ function onRpcConnectionVerified(getnetworkinfo, getblockchaininfo) {
 		// short-circuit: force all RPC calls to pass their version checks - this will likely lead to errors / instability / unexpected results
 		global.btcNodeSemver = "1000.1000.0"
 
-		debugLogError(`Unable to parse node version string: ${getnetworkinfo.subversion} - RPC versioning will likely be unreliable. Is your node a compatible with the Nexa protocol?`);
+		debugLogError(`Unable to parse node version string: ${getnetworkinfo.subversion} - RPC versioning will likely be unreliable. Is your node a compatible with the Exana protocol?`);
 	}
 
 	debugLog(`RPC Connected: version=${getnetworkinfo.version} subversion=${getnetworkinfo.subversion}, parsedVersion(used for RPC versioning)=${global.btcNodeSemver}, protocolversion=${getnetworkinfo.protocolversion}, chain=${getblockchaininfo.chain}, services=${services}`);
@@ -291,7 +291,7 @@ function onRpcConnectionVerified(getnetworkinfo, getblockchaininfo) {
 	// load historical/fun items for this chain
 	loadHistoricalDataForChain(global.activeBlockchain);
 
-	if (global.activeBlockchain == "nexa") {
+	if (global.activeBlockchain == "exana") {
 		if (global.exchangeRates == null) {
 			utils.refreshExchangeRates();
 		}
@@ -508,7 +508,7 @@ app.continueStartup = async function() {
 	if (config.addressApi) {
 		var supportedAddressApis = addressApi.getSupportedAddressApis();
 		if (!supportedAddressApis.includes(config.addressApi)) {
-			utils.logError("32907ghsd0ge", `Unrecognized value for NEXEXP_ADDRESS_API: '${config.addressApi}'. Valid options are: ${supportedAddressApis}`);
+			utils.logError("32907ghsd0ge", `Unrecognized value for EXAEXP_ADDRESS_API: '${config.addressApi}'. Valid options are: ${supportedAddressApis}`);
 		}
 
 		if (config.addressApi == "electrumx") {
@@ -520,7 +520,7 @@ app.continueStartup = async function() {
 					utils.logError("31207ugf4e0fed", err, {electrumXServers:config.electrumXServers});
 				});
 			} else {
-				utils.logError("327hs0gde", "You must set the 'NEXEXP_ELECTRUMX_SERVERS' environment variable when NEXEXP_ADDRESS_API=electrumx.");
+				utils.logError("327hs0gde", "You must set the 'EXAEXP_ELECTRUMX_SERVERS' environment variable when EXAEXP_ADDRESS_API=electrumx.");
 			}
 		}
 	}

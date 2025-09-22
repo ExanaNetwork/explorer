@@ -1,7 +1,7 @@
-import nex from "./coins/nex.js";
+import exa from "./coins/exa.js";
 
 export default {
-  "NEX": nex,
+  "EXA": exa,
 
-  "coins": ["NEX"]
+  "coins": ["EXA"]
 };

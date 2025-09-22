@@ -3,12 +3,12 @@ import debug from 'debug';
 import app from '../app.js'
 
 import v8 from 'v8';
-v8.setFlagsFromString("--max_old_space_size=" + (process.env.NEXEXP_OLD_SPACE_MAX_SIZE || 1024));
-debug(`Set max_old_space_size to ${(process.env.NEXEXP_OLD_SPACE_MAX_SIZE || 1024)} MB`);
+v8.setFlagsFromString("--max_old_space_size=" + (process.env.EXAEXP_OLD_SPACE_MAX_SIZE || 1024));
+debug(`Set max_old_space_size to ${(process.env.EXAEXP_OLD_SPACE_MAX_SIZE || 1024)} MB`);
 v8.setFlagsFromString("--harmony_json_parse_with_source");
 
-app.set('port', process.env.PORT || process.env.NEXEXP_PORT || 3002);
-app.set('host', process.env.NEXEXP_HOST || '127.0.0.1');
+app.set('port', process.env.PORT || process.env.EXAEXP_PORT || 3002);
+app.set('host', process.env.EXAEXP_HOST || '127.0.0.1');
 app.set('env', 'production')
 
 var server = app.listen(app.get('port'), app.get('host'), function() {

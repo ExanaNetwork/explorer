@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ "$1" == "nexa-cli" || "$1" == "nexa-tx" || "$1" == "nexad" || "$1" == "test_nexa" ]]; then
+if [[ "$1" == "nexa-cli" || "$1" == "nexa-tx" || "$1" == "exanad" || "$1" == "test_nexa" ]]; then
   mkdir -p "$NEXA_DATA"
 
   if [[ ! -s "$NEXA_DATA/nexa.conf" ]]; then
@@ -13,17 +13,17 @@ if [[ "$1" == "nexa-cli" || "$1" == "nexa-tx" || "$1" == "nexad" || "$1" == "tes
     rpcpassword=${NEXA_RPC_PASSWORD:-explorer}
     rpcuser=${NEXA_RPC_USER:-explorer}
 EOF
-    chown nexa:nexa "$NEXA_DATA/nexa.conf"
+    chown exana:exana "$NEXA_DATA/exana.conf"
   fi
 
   # ensure correct ownership and linking of data directory
   # we do not update group ownership here, in case users want to mount
   # a host directory and still retain access to it
-  chown -R nexa "$NEXA_DATA"
-  ln -sfn "$NEXA_DATA" /home/nexa/.nexa
-  chown -h nexa:nexa /home/nexa/.nexa
+  chown -R exana "$NEXA_DATA"
+  ln -sfn "$NEXA_DATA" /home/exana/.exana
+  chown -h exana:exana /home/exana/.exana
 
-  exec gosu nexa "$@"
+  exec gosu exana "$@"
 fi
 
 exec "$@"

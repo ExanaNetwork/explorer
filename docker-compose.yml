@@ -17,11 +17,11 @@ services:
     ports: # use if it is necessary to expose the container to the host machine
       - "3002:3002"
     command: "npm start"
-  nexad:
+  exanad:
     build:
-      context: ./docker/nexad
+      context: ./docker/exanad
       dockerfile: ./Dockerfile
-    container_name: nexad
+    container_name: exanad
     restart: unless-stopped
     env_file: .env
     networks:
@@ -31,8 +31,8 @@ services:
       # - "20001:20001"
       # - "20002:20002"
     volumes:
-      - ./nexa:/data
-      - ./docker/nexad:/scripts
+      - ./exana:/data
+      - ./docker/exanad:/scripts
 
   cache:
     image: redis:6.2-alpine

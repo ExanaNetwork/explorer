@@ -15,7 +15,7 @@ import axios from 'axios';
 import JSZip from "jszip";
 const debugLog = debug("nexexp:queue");
 import global from "./global.js";
-import {Address, AddressType, GroupIdType, GroupToken, Script} from "libnexa-ts";
+import {Address, AddressType, GroupIdType, GroupToken, Script} from "libexana-ts";
 
 const tokenProcessQueue = new BeeQueue('tokenProcessQueue',{
 	redis: createClient(config.redisUrl),
@@ -100,8 +100,8 @@ tokenProcessQueue.process(3,async (job) => {
 
 						if(opReturnScript.getGroupIdType() === GroupIdType.NRC3) {
 							// token is a nebula NFT
-							const prefix = global.activeBlockchain === "nexa" ? "nexa:" : "nexatest:";
-							const isTestnet = (prefix === "nexatest:");
+							const prefix = global.activeBlockchain === "exana" ? "exana:" : "exanatest:";
+							const isTestnet = (prefix === "exanatest:");
 							if(isTestnet){
 								nftURL  = "https://api.testnet.nebula.markets/raw/" + token + '.zip';
 								nftDataProviderName = "Nebula Testnet";

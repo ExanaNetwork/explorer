@@ -17,21 +17,21 @@ block content
 				span
 					span.font-weight-bold #{coinConfig.siteTitlesByNetwork[activeBlockchain]}
 					span  is 
-					a(href="https://gitlab.com/nexa/explorer", target="_blank") open-source
+					a(href="https://github.com/ExanaNetwork/explorer", target="_blank") open-source
 					span  and easy to set up. It can communicate with your 
 					a(href=coinConfig.nodeUrl, target="_blank") #{coinConfig.name} Full Node
 					span  via RPC. See the 
-					a(href="https://gitlab.com/nexa/explorer", target="_blank") project description
+					a(href="https://github.com/ExanaNetwork/explorer", target="_blank") project description
 					span  for a list of features and instructions for running.
 
 				if (global.sourcecodeProjectMetadata)
 					div.mt-2
-						a.btn.btn-primary.btn-sm.mr-3.mb-1(href="https://gitlab.com/nexa/explorer")
+						a.btn.btn-primary.btn-sm.mr-3.mb-1(href="https://github.com/ExanaNetwork/explorer")
 							i.fas.fa-star.mr-2
 							span.mr-2 Star 
 							span.badge.bg-white.text-dark #{global.sourcecodeProjectMetadata.stargazers_count}
 
-						a.btn.btn-primary.btn-sm.mr-3.mb-1(href="https://gitlab.com/nexa/explorer/fork")
+						a.btn.btn-primary.btn-sm.mr-3.mb-1(href="https://github.com/ExanaNetwork/explorer/fork")
 							i.fas.fa-code-branch.mr-2
 							span.mr-2 Fork 
 							span.badge.bg-white.text-dark #{global.sourcecodeProjectMetadata.forks_count}
@@ -54,11 +54,11 @@ block content
 				span.text-monospace #{new Decimal(blockChainInfo.verificationprogress).times(100).toDP(3)}%
 
 		
-		if (processingTokens)
+		if (false && processingTokens)
 			div.alert.alert-warning.shadow-sm.border.mb-3
 				div.font-weight-bold.mb-1 Your node is currently indexing tokens
 
-				div.mb-1 Your node is currently downloading and indexing Nexa Tokens. Until the process is finished, some features of this tool will be unusable and/or unreliable.
+				div.mb-1 Your node is currently downloading and indexing Exana Tokens. Until the process is finished, some features of this tool will be unusable and/or unreliable.
 
 				span.font-weight-bold Progress: 
 				span.text-monospace 5%

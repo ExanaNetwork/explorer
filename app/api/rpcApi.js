@@ -376,10 +376,11 @@ function getRpcDataWithParams(request) {
 			try {
 				client.request(request.method, request.parameters, function(err, rpcResult) {
 					if(err) {
+						 
 						err.userData = {request:request};
 						const rpcError = new RpcError(err)
 
-						utils.logError("283h7ewsede", rpcError, {request:request});
+						utils.logError("283h7ewsede", err, rpcError, {request:request});
 						logStats(request.method, true, new Date().getTime() - startTime, false)
 
 						reject(rpcError);

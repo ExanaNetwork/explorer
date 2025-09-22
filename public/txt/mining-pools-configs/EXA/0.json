@@ -1,0 +1,14 @@
+{
+    "coinbase_tags" : {
+        "/matchhere/replacehere": {
+            "name" : "replacednamehere",
+            "link" : "https://thereplacedurlgoeshere.com"
+        }
+    },
+    "payout_addresses" : {
+        "exana:nqtsq5g5kzgzgwd3qnunzj8ufuhu93mshclse3y9zeve0fg0": {
+            "name" : "tbdMining",
+            "link" : "https://somefutureminingpool3dfgs.com"
+        } 
+    }
+}

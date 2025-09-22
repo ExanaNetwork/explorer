@@ -4,31 +4,17 @@ const Decimal2 = Decimal.clone({ precision: 2, rounding: 2 });
 var currencyUnits = [
 	{
 		type:"native",
-		name:"NEX",
+		name:"EXA",
 		multiplier:1,
 		default:true,
-		values:["", "nex", "NEX"],
-		decimalPlaces:2
-	},
-	{
-		type:"native",
-		name:"KEX",
-		multiplier:0.001,
-		values:["kex", "KEX"],
-		decimalPlaces:5
-	},
-	{
-		type:"native",
-		name:"MEX",
-		multiplier:0.000001,
-		values:["mex", "MEX"],
+		values:["", "exa", "EXA"],
 		decimalPlaces:8
 	},
 	{
 		type:"native",
-		name:"sat",
-		multiplier:100,
-		values:["sat", "satoshi"],
+		name:"energy",
+		multiplier:100000000,
+		values:["energy", "energy"],
 		decimalPlaces:0
 	},
 	{
@@ -51,28 +37,28 @@ var currencyUnits = [
 ];
 
 export default {
-	name:"Nexa",
-	ticker:"NEX",
-	logoUrl:"/img/logo/nex.svg",
-	faviconUrl:"/img/logo/nex.ico",
-	siteTitle:"Nexa Explorer",
-	siteTitleHtml:"Nexa Explorer",
-	siteDescriptionHtml:"<b>NEX Explorer</b> is <a href='https://gitlab.com/nexa/explorer). If you run your own Nexa Full Node, **NEX Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://gitlab.com/nexa/nex-rpc-explorer/README.md) for a list of features and instructions for running.",
-	nodeTitle:"Nexa Full Node",
-	nodeUrl:"https://nexa.org/download",
-	demoSiteUrl: "https://explorer.nexa.org",
-	miningPoolsConfigUrls:["https://nexa.org"],
+	name:"Exana",
+	ticker:"EXA",
+	logoUrl:"/img/logo/exa.png",
+	faviconUrl:"/img/logo/exa.ico",
+	siteTitle:"Exana Explorer",
+	siteTitleHtml:"Exana Explorer",
+	siteDescriptionHtml:"<b>Exana Explorer</b> is <a href='https://github.com/ExanaNetwork/explorer). If you run your own Exana Full Node, **EXA Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://gitlab.com/exana/exa-rpc-explorer/README.md) for a list of features and instructions for running.",
+	nodeTitle:"Exana Full Node",
+	nodeUrl:"https://exana.org/download",
+	demoSiteUrl: "https://explorer.exana.org",
+	miningPoolsConfigUrls:["https://exana.org"],
 	difficultyAdjustmentBlockOffset: 20160,
 	difficultyAdjustmentBlockCount: 4,
 	maxSupplyByNetwork: {
-		"nexa": new Decimal(20999999863500), // 1 nex = 100 statoshi, which means 2 decimal digit precision
-		"test": new Decimal(21000000000000),
-		"regtest": new Decimal(210000000000000)
+		"exana": new Decimal(20947497500), // 1 EXA = 100,000,000 energy, which means 8 decimal digit precision
+		"test": new Decimal(20947497500),
+		"regtest": new Decimal(20947497500)
 	},
-	targetBlockTimeSeconds: 120,
-	targetBlockTimeMinutes: 2,
+	targetBlockTimeSeconds: 30,
+	targetBlockTimeMinutes: 0.5,
 	currencyUnits:currencyUnits,
-	currencyUnitsByName:{"NEX":currencyUnits[0], "KEX":currencyUnits[1], "MEX":currencyUnits[2], "sat":currencyUnits[3], "USDT":currencyUnits[4]},
+	currencyUnitsByName:{"EXA":currencyUnits[0], "KEXA":currencyUnits[1], "MEXA":currencyUnits[2], "sat":currencyUnits[3], "USDT":currencyUnits[4]},
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
@@ -342,9 +328,9 @@ export default {
 			chain: "test",
 			blockHeight: 0,
 			blockHash: "508c843a4b98fb25f57cf9ebafb245a5c16468f06519cdd467059a91e7b79d52",
-			summary: "Nexa Testnet Genesis Block.",
-			alertBodyHtml: "This is the first block in the Nexa testnet blockchain, known as the 'Genesis Block'",
-			referenceUrl: "https://nexa.org"
+			summary: "Exana Testnet Genesis Block.",
+			alertBodyHtml: "This is the first block in the Exana testnet blockchain, known as the 'Genesis Block'",
+			referenceUrl: "https://exana.ai"
 		},
 		{
 			type: "blockheight",
@@ -352,13 +338,13 @@ export default {
 			chain: "main",
 			blockHeight: 0,
 			blockHash: "edc7144fe1ba4edd0edf35d7eea90f6cb1dba42314aa85da8207e97c5339c801",
-			summary: "Nexa Mainnet Genesis Block.",
-			alertBodyHtml: "This is the first block in the Nexa mainnet blockchain, known as the 'Genesis Block'",
-			referenceUrl: "https://nexa.org"
+			summary: "Exana Mainnet Genesis Block.",
+			alertBodyHtml: "This is the first block in the Exana mainnet blockchain, known as the 'Genesis Block'",
+			referenceUrl: "https://exana.ai"
 		}
 	],
 	exchangeRateData:{
-		jsonUrl:"https://api.mexc.com/api/v3/ticker/price?symbol=NEXAUSDT",
+		jsonUrl:"https://api.mexc.com/api/v3/ticker/price?symbol=EXANAUSDT",
 		responseBodySelectorFunction:function(responseBody) {
 			if (responseBody.price) {
 				var exchangeRates = {};
@@ -398,7 +384,7 @@ export default {
 		}
 	],
 	blockRewardFunction:function(blockHeight, chain) {
-		var eras = [ new Decimal2(10000000) ];
+		var eras = [ new Decimal2(2500) ];
 		// since we have 2 decimal precision the last halving with a block reward > 0
 		// would be the 30th
 		for (var i = 1; i < 31; i++) {

@@ -1,4 +1,4 @@
-### Setup of nexa-rpc-explorer on Ubuntu 20.04 server
+### Setup of exana-rpc-explorer on Ubuntu 20.04 server
 
 First install certbot on your machine by following these instructions:
 
@@ -18,23 +18,23 @@ sudo npm install pm2 --global
 apt install python-certbot-nginx
 ```
 
-Copy content from [./nexa-explorer.conf](./nexa-explorer.conf) into `/etc/nginx/sites-available/nexa-explorer.conf`
+Copy content from [./exana-explorer.conf](./exana-explorer.conf) into `/etc/nginx/sites-available/exana-explorer.conf`
 
 
 ```bash
-certbot --nginx -d nexa-explorer.com #use your domain name here
-cd /home/nexa
-git clone https://gitlab.com/nexa/explorer.git
-cd /home/nexa/explorer
+certbot --nginx -d exana-explorer.com #use your domain name here
+cd /home/exana
+git clone https://github.com/ExanaNetwork/explorer.git
+cd /home/exana/explorer
 npm install
-pm2 start bin/www --name "nexa-rpc-explorer"
+pm2 start bin/www --name "exana-rpc-explorer"
 ```
 
 Before starting you should probably have a look at `.env-sample` to have an idea on how to configure/customise
 your explorer instance.
 
 If you want your explorer being able to show transactions with a feerate lower than 1 sat/byte you should
-configure your full nodes to accept those on its mempool. To do that if you need to add this parameter to your nexa.conf:
+configure your full nodes to accept those on its mempool. To do that if you need to add this parameter to your exana.conf:
 
 
 ```ini

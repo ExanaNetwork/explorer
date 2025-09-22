@@ -1,6 +1,6 @@
 doctype html
 mixin title(title)
-	if (activeBlockchain != "nexa")
+	if (activeBlockchain != "exana")
 		title [#{activeBlockchain.toUpperCase()}] - #{title}
 	else
 		title #{title}
@@ -138,7 +138,7 @@ html(lang="en")
 										h4.text-bold Uh oh. Something went wrong!
 										if(item.errorMessage.includes("No such txpool or blockchain transaction"))
 											h6.mt-2.mb-1 No such txpool or blockchain transaction
-											span (If you just made this transaction, wait a few more seconds for it to propagate on the Nexa network.  If the transaction never appears, it is also possible that it was incorrectly constructed, indicating a bug in your wallet)
+											span (If you just made this transaction, wait a few more seconds for it to propagate on the Exana network.  If the transaction never appears, it is also possible that it was incorrectly constructed, indicating a bug in your wallet)
 										else
 											h6.mt-2.mb-1 #{item.errorMessage}
 										a(href="javascript:void(0)", data-toggle="modal", data-target="#pageErrorsModal") Error details
@@ -164,16 +164,16 @@ html(lang="en")
 						dl
 							dt Source
 							dd
-								a(href="https://gitlab.com/nexa/explorer") https://gitlab.com/nexa/explorer
+								a(href="https://github.com/ExanaNetwork/explorer") https://github.com/ExanaNetwork/explorer
 
 								if (global.sourcecodeProjectMetadata)
 									div(class="mt-2")
-										a(href="https://gitlab.com/nexa/explorer/-/starrers", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/ExanaNetwork/explorer/-/starrers", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-star mr-2")
 											span(class="mr-2") Star
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.stargazers_count}
 
-										a(href="https://gitlab.com/nexa/explorer/-/forks", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/ExanaNetwork/explorer/-/forks", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-code-branch mr-2")
 											span(class="mr-2") Fork
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.forks_count}
@@ -187,7 +187,7 @@ html(lang="en")
 									br
 									// the following is not a trailing spaces
 									span commit: 
-										a(href=("https://gitlab.com/nexa/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
+										a(href=("https://github.com/ExanaNetwork/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
 
 								br
 
@@ -205,12 +205,6 @@ html(lang="en")
 											a(href=coinConfigs[demoSiteCoin].demoSiteUrl, class="mr-2", title=coinConfigs[demoSiteCoin].siteTitle)
 												img(src=("/img/logo/" + demoSiteCoin.toLowerCase() + ".svg"), alt=demoSiteCoin.toLowerCase())
 
-					div(class="col-md-7 text-md-right")
-						dl
-							dd
-								button.btn.btn-primary(type="button", class="btn btn-primary", data-toggle="modal", data-target="#exampleModalCenter")
-									i(class="fas fa-heart mr-2")
-									span Support Project
 
 		script(src="/js/jquery.min.js", integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh")
 		script(src="/js/popper.min.js", integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo")
@@ -220,8 +214,7 @@ html(lang="en")
 		script(src="/js/highlight.min.js", integrity="sha384-xLrpH5gNLD6HMLgeDH1/p4FXigQ8T9mgNm+EKtCSXL0OJ5i1bnSi57dnwFuUMM9/")
 
 		script(src="/js/site.js", integrity="sha384-v/91ekPcT7McKahGike6yPpHuTSvYsPN6VMoXdM8VB1uTkCXqhwvGHUs1uxBodfK")
-		script(data-collect-dnt='true' async='' src='https://scripts.simpleanalyticscdn.com/latest.js')
-
+ 
 		script.
 			$(document).ready(function() {
 				$('.toast').toast('show')

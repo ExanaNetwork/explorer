@@ -21,7 +21,7 @@ import electrumAddressApi from "../api/electrumAddressApi.js";
 
 import global from "../global.js";
 import tokenLoadQueue from "../tokenLoadQueue.js";
-import {Address} from "libnexa-ts";
+import {Address} from "libexana-ts";
 global.cacheStats = {};
 import cacheApi from "./cacheApi.js";
 

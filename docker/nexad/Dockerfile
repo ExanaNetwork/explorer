@@ -22,9 +22,9 @@ RUN set -ex \
 # create data directory
 ENV NEXA_DATA /data
 RUN mkdir "$NEXA_DATA" \
-	&& chown -R nexa:nexa "$NEXA_DATA" \
-	&& ln -sfn "$NEXA_DATA" /home/nexa/.nexa \
-	&& chown -h nexa:nexa /home/nexa/.nexa
+	&& chown -R exana:exana "$NEXA_DATA" \
+	&& ln -sfn "$NEXA_DATA" /home/exana/.exana \
+	&& chown -h exana:exana /home/exana/.exana
 VOLUME /data
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
@@ -34,4 +34,4 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 7228 7227 7230 7229 20001 20002
 
-CMD ["nexad"]
+CMD ["exanad"]

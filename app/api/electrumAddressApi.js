@@ -11,7 +11,7 @@ import global from "../global.js";
 import db from '../../models/index.js';
 const debugLog = debug("nexexp:electrumx");
 import tokenProcessQueue from '../tokenProcessQueue.js';
-import {Address, AddressType} from "libnexa-ts";
+import {Address, AddressType} from "libexana-ts";
 var Op = db.Sequelize.Op;
 
 const coinConfig = coins[config.coin];
@@ -102,7 +102,7 @@ function connectToServers() {
 	debugLog('Connecting to Electrum...')
 	return new Promise(async function(resolve, reject) {
 		try {
-			electrum = new ElectrumCluster('nexa-rpc-explorer', '1.4.3', 1, config.electrumXServers.length, ClusterOrder.PRIORITY, 30000);
+			electrum = new ElectrumCluster('exana-rpc-explorer', '1.4.3', 1, config.electrumXServers.length, ClusterOrder.PRIORITY, 30000);
 			for (let i = 0; i < config.electrumXServers.length; i++) {
 				const {host, port, protocol} = config.electrumXServers[i];
 				let defaultProtocol;
@@ -351,7 +351,7 @@ async function executeElectrumRequest(method, ...params) {
 
 async function mergeBalances(balanceResults) {
 	let mergedBalances = {};
-	var network = global.activeBlockchain === "nexa" ? "mainnet" : "testnet";
+	var network = global.activeBlockchain === "exana" ? "mainnet" : "testnet";
 
 	// Combine confirmed and unconfirmed balances
 	for (const type of ['confirmed', 'unconfirmed']) {

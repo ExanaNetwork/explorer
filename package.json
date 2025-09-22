@@ -1,7 +1,7 @@
 {
-  "name": "nex-rpc-explorer",
+  "name": "exana-rpc-explorer",
   "version": "1.0.0",
-  "description": "Self-hosted Nexa blockchain explorer",
+  "description": "Self-hosted Exana blockchain explorer",
   "private": false,
   "type": "module",
   "bin": "bin/cli.js",
@@ -11,7 +11,7 @@
     "start-cli": "node ./bin/cli.js"
   },
   "keywords": [
-    "Nexa",
+    "Exana",
     "blockchain",
     "Peer-to-peer Electronic Cash System"
   ],
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/nexa/explorer.git"
+    "url": "git+https://gitlab.com/exana/explorer.git"
   },
   "dependencies": {
     "async": "^3.2.4",
@@ -44,7 +44,7 @@
     "file-type": "^19.0.0",
     "jayson": "^4.1.0",
     "jszip": "^3.10.1",
-    "libnexa-ts": "^1.0.3",
+    "libexana-ts": "file:../libexana-ts",
     "md5": "^2.3.0",
     "meow": "^9.0.0",
     "moment": "^2.29.1",
